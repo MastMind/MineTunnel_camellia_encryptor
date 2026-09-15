@@ -1,0 +1,24 @@
+[profile.release]
+opt-level = 3        # Maximum optimization level (default for release)
+codegen-units = 1    # Allows for maximum inter-procedure optimization, at the cost of compilation time
+lto = true           # Enables Link Time Optimization
+strip = "symbols"    # Strips debug symbols from the binary to reduce size
+
+[package]
+name = "mine_tunnel_camellia_encryptor"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+camellia = "0.1"
+cbc = "0.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4"
+hmac = "0.11"
+sha2 = "0.9"
+cmac = "0.7"
